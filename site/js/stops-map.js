@@ -35,7 +35,7 @@ function initializeStopMap () {
 }
 
 
-function showStopsOnMap (stopMap, stopsToShow) {
+function showStopsOnMap (stopsToShow, stopMap) {
     /*creates a new Feature Collection from those converted GeoJSON objects. 
     Use "const" b/c no intent to change later on.*/
     const stopFeatureCollection ={
