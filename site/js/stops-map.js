@@ -14,7 +14,7 @@ function initializeStopMap () {
     L.geoJSON(universityCity,{
         style: { fill: null, color: '#000' },
     })
-    .addTo(stopMap)
+    .addTo(stopMap);
 
     return stopMap;
 }
