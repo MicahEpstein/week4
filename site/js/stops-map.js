@@ -11,7 +11,7 @@ function initializeStopMap () {
     }).addTo(stopMap);
 
     //including UCity polygon and restyling
-    L.geoJSON(universityCity,{
+    L.geoJSON(universityCity, {
         style: { fill: null, color: '#000' },
     })
     .addTo(stopMap);
@@ -31,7 +31,7 @@ function initializeStopMap () {
                 'wheelchair_boarding':stop['wheelchar_boarding'],
             },
             'geometry': stop['geom'],
-        }
+        };
 }
 
 
