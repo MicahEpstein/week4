@@ -31,6 +31,8 @@ function makeStopFeature(stop){
     }
 }
 
+
+function showStopsOnMap (stopsToShow) {
 /*creates a new Feature Collection from those converted GeoJSON objects. 
 Use "const" b/c no intent to change later on.*/
 const stopFeatureCollection ={
@@ -43,10 +45,13 @@ L.geoJSON(stopFeatureCollection, {
     pointToLayer: (geoJSONPoint, latlng) => L.circleMarker(latlng),
     style: {
         stroke: null,
-        fillOpacity: 0.9,
-        radius: 3,
+        fillOpacity: 0.8,
+        radius: 5,
     },
 }).addTo(stopMap);
+}
+
+showStopsOnMap(stops);
 
 //make data ?global
 window.stops = stops;
