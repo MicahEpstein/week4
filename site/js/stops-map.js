@@ -13,8 +13,7 @@ function initializeStopMap () {
     //including UCity polygon and restyling
     L.geoJSON(universityCity, {
         style: { fill: null, color: '#000' },
-    })
-    .addTo(stopMap);
+    }).addTo(stopMap);
 
     return stopMap;
 }
@@ -36,7 +35,7 @@ function initializeStopMap () {
 
 
 function showStopsOnMap (stopsToShow, stopMap) {
-    /*creates a new Feature Collection from those converted GeoJSON objects. 
+    /*creates a new Feature Collection from those converted GeoJSON objects.
     Use "const" b/c no intent to change later on.*/
     const stopFeatureCollection ={
         "type":"FeatureCollection",
@@ -58,3 +57,5 @@ export{
     initializeStopMap,
     showStopsOnMap,
 };
+
+window.universityCity = universityCity;

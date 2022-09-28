@@ -6,5 +6,4 @@ let stopMap = initializeStopMap;
 showStopsOnMap(stops, stopMap);
 
 //make data ?global
-window.stops = stops;
-window.universityCity = universityCity;
+window.stop = stops;
