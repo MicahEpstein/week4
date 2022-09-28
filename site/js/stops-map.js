@@ -13,7 +13,8 @@ function initializeStopMap () {
     //including UCity polygon and restyling
     L.geoJSON(universityCity, {
         style: { fill: null, color: '#000' },
-    }).addTo(stopMap);
+    })
+    .addTo(stopMap);
 
     return stopMap;
 }
