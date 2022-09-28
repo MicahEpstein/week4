@@ -24,7 +24,7 @@ function initializeStopMap () {
     function makeStopFeature(stop){
         return{
             'type': 'Feature',
-            'propertes': {
+            'properties': {
                 'routes_ids':stop['routes_ids'],
                 'stop_id':stop['stop_id'],
                 'stop_name':stop['stop_name'],
@@ -36,6 +36,9 @@ function initializeStopMap () {
 
 
 function showStopsOnMap (stopsToShow, stopMap) {
+    if (stopMap.stopLayers !== undefined) {
+        stopMap.removeLayer(stopMap.stopLayers);
+      }
     /*creates a new Feature Collection from those converted GeoJSON objects.
     Use "const" b/c no intent to change later on.*/
     const stopFeatureCollection ={
@@ -44,14 +47,16 @@ function showStopsOnMap (stopsToShow, stopMap) {
     };
 
     //add feature collection to map
-    L.geoJSON(stopFeatureCollection, {
+    stopMap.stopLayers = L.geoJSON(stopFeatureCollection, {
         pointToLayer: (geoJSONPoint, latlng) => L.circleMarker(latlng),
         style: {
             stroke: null,
             fillOpacity: 0.8,
             radius: 5,
         },
-    }).addTo(stopMap);
+    })
+    .bindTooltip(layer => layer.feature.properties['stop_name'])
+    .addTo(stopMap);
 }
 
 export{
